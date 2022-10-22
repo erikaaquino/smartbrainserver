@@ -8,6 +8,7 @@ const register= require('./controllers/register');
 const signIn= require('./controllers/SignIn');
 const profile= require('./controllers/profile');
 const image= require('./controllers/image');
+const { env } = require('process');
 
 const db=knex({
     client: 'pg',
@@ -53,6 +54,6 @@ app.post('/imageurl',(req,res)=>{image.handleApiCall(req,res)})
 //         // res = false
 //     });
 
-app.listen(3000,()=>{
-     console.log('app todo ok');
+app.listen(process.env.PORT||3000,()=>{
+     console.log(`app todo ok, is running on ${process.env.PORT}`);
 })
