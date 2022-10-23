@@ -13,11 +13,8 @@ const { env } = require('process');
 const db=knex({
     client: 'pg',
     connection: {
-      host : '127.0.0.1', //localhost es lo mismo que esto 
-      port : 5432,
-      user : 'postgres',
-      password : '1234',
-      database : 'smart-brain'
+      host : process.env.DATABASE_URL, //'127.0.0.1', //localhost es lo mismo que esto 
+      ssl: true,
     }
   });
 
