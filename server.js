@@ -13,7 +13,7 @@ const { env } = require('process');
 const db=knex({
     client: 'pg',
     connection: {
-      host : process.env.DATABASE_URL, //'127.0.0.1', //localhost es lo mismo que esto 
+      connectionString: process.env.DATABASE_URL, //'127.0.0.1', //localhost es lo mismo que esto 
       ssl: true,
     }
   });
